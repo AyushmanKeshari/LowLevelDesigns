@@ -8,6 +8,9 @@ import ParkingLot.java.model.Command;
 
 import java.io.IOException;
 
+/**
+ * Interface for mode of the program in which it can be run.
+ */
 public abstract class Mode {
 
     CommandExecutorFactory factory;
@@ -20,7 +23,7 @@ public abstract class Mode {
 
     public void processCommand(Command command) {
         CommandExecutor commandExecutor = factory.getCommandExecutor(command);
-        if(commandExecutor.validate(command)) {
+        if (commandExecutor.validate(command)) {
             commandExecutor.execute(command);
         } else {
             throw new InvalidCommandException();

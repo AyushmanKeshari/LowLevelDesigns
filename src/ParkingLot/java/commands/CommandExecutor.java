@@ -4,6 +4,9 @@ import ParkingLot.java.OutputPrinter;
 import ParkingLot.java.model.Command;
 import ParkingLot.java.service.ParkingLotService;
 
+/**
+ * Command executor interface.
+ */
 public abstract class CommandExecutor {
     ParkingLotService parkingLotService;
     OutputPrinter outputPrinter;

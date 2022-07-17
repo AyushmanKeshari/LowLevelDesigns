@@ -9,6 +9,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Mode running in which input commands are given from an interactive shell.
+ */
 public class InteractiveMode extends Mode {
 
     public InteractiveMode(CommandExecutorFactory factory, OutputPrinter outputPrinter) {
@@ -24,7 +27,7 @@ public class InteractiveMode extends Mode {
             String input = reader.readLine();
             Command command = new Command(input);
             processCommand(command);
-            if(command.getCommandName().equals(Exit.COMMAND_NAME)) {
+            if (command.getCommandName().equals(Exit.COMMAND_NAME)) {
                 break;
             }
         }

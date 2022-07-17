@@ -1,7 +1,7 @@
 package ParkingLot.java.commands;
 
 import ParkingLot.java.OutputPrinter;
-import ParkingLot.java.Validator.IntegerValidator;
+import ParkingLot.java.validator.IntegerValidator;
 import ParkingLot.java.model.Command;
 import ParkingLot.java.model.ParkingLot;
 import ParkingLot.java.model.strategy.NaturalOrderingParkingStrategy;
@@ -17,8 +17,8 @@ public class CreateParkingLot extends CommandExecutor {
 
     @Override
     public boolean validate(Command command) {
-        int size =  command.getParams().size();
-        if(size!=1) return false;
+        int size = command.getParams().size();
+        if (size != 1) return false;
 
         return IntegerValidator.isInteger(command.getParams().get(0));
     }
@@ -27,7 +27,7 @@ public class CreateParkingLot extends CommandExecutor {
     public void execute(Command command) {
         int parkingLotCapacity = Integer.parseInt(command.getParams().get(0));
         ParkingLot parkingLot = new ParkingLot(parkingLotCapacity);
-        parkingLotService.createParking(parkingLot ,new NaturalOrderingParkingStrategy());
+        parkingLotService.createParking(parkingLot, new NaturalOrderingParkingStrategy());
 
         outputPrinter.printWithNewLine("Created a parking lot with " + parkingLot.getCapacity() + " slots.");
     }

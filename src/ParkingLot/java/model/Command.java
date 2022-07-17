@@ -29,7 +29,7 @@ public class Command {
         List<String> tokenList = Arrays.stream(inputLine.trim().split(SPACE))
                 .map(String::trim).filter(token -> (token.length() > 0)).collect(Collectors.toList());
 
-        if(tokenList.size() == 0){
+        if (tokenList.size() == 0) {
             throw new InvalidCommandException();
         }
 

@@ -2,12 +2,12 @@ package ParkingLot.java;
 
 public class OutputPrinter {
 
-    public void welcome(){
-        printWithNewLine("Welcome to Ayushman's Parking Lot");
+    public void welcome() {
+        printWithNewLine("Welcome to Ayushman's Parking lot");
     }
 
-    public void end(){
-        printWithNewLine("Thanks for using Ayushman's Parking Lot Service");
+    public void end() {
+        printWithNewLine("Thanks for using Ayushman's Parking lot service");
     }
 
     public void fileNotFound() {
@@ -18,15 +18,15 @@ public class OutputPrinter {
         printWithNewLine("Not found");
     }
 
-    public void parkingLotFull(){
+    public void parkingLotFull() {
         printWithNewLine("Sorry, Parking lot is full.");
     }
 
-    public void parkingLotEmpty(){
+    public void parkingLotEmpty() {
         printWithNewLine("Parking lot is empty.");
     }
 
-    public void statusHeader(){
+    public void statusHeader() {
         printWithNewLine("Slot No.      Registration No         Colour");
     }
 

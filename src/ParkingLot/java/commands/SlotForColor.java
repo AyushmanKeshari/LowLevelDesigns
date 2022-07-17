@@ -25,9 +25,9 @@ public class SlotForColor extends CommandExecutor {
     public void execute(Command command) {
         String color = command.getParams().get(0);
 
-        List<Slot> slotsForColor  = parkingLotService.getSlotsByColor(color);
+        List<Slot> slotsForColor = parkingLotService.getSlotsByColor(color);
 
-        if (slotsForColor .isEmpty()) {
+        if (slotsForColor.isEmpty()) {
             outputPrinter.notFound();
         } else {
 //            for (Slot slot : slotsForColor ) {

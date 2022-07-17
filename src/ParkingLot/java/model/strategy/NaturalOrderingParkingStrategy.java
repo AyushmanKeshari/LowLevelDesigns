@@ -13,7 +13,7 @@ public class NaturalOrderingParkingStrategy implements ParkingStrategy {
     TreeSet<Integer> slotTreeSet;
 
     public NaturalOrderingParkingStrategy() {
-        this.slotTreeSet = new TreeSet<Integer>();
+        this.slotTreeSet = new TreeSet<>();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class NaturalOrderingParkingStrategy implements ParkingStrategy {
 
     @Override
     public Integer getNextSlot() {
-        if(slotTreeSet.isEmpty()){
+        if (slotTreeSet.isEmpty()) {
             throw new NoFreeSlotAvailableException();
         }
 

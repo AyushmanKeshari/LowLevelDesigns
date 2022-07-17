@@ -1,5 +1,8 @@
 package ParkingLot.java.model;
 
+/**
+ * Model object to represent a car.
+ */
 public class Car {
     private String registrationID;
     private String color;

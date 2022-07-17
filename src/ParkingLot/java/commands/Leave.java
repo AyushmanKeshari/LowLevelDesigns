@@ -1,7 +1,7 @@
 package ParkingLot.java.commands;
 
 import ParkingLot.java.OutputPrinter;
-import ParkingLot.java.Validator.IntegerValidator;
+import ParkingLot.java.validator.IntegerValidator;
 import ParkingLot.java.model.Command;
 import ParkingLot.java.service.ParkingLotService;
 
@@ -15,8 +15,8 @@ public class Leave extends CommandExecutor {
 
     @Override
     public boolean validate(Command command) {
-        int size =  command.getParams().size();
-        if(size!=1) return false;
+        int size = command.getParams().size();
+        if (size != 1) return false;
 
         return IntegerValidator.isInteger(command.getParams().get(0));
     }

@@ -6,6 +6,9 @@ import ParkingLot.java.model.Command;
 
 import java.io.*;
 
+/**
+ * Mode running in which input commands are given from a file.
+ */
 public class FileMode extends Mode {
     String fileName;
 

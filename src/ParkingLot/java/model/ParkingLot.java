@@ -6,11 +6,14 @@ import ParkingLot.java.exceptions.SlotAlreadyOccupiedException;
 
 import java.util.HashMap;
 
+/**
+ * Model object to represent the functioning of a parking lot.
+ */
 public class ParkingLot {
 
     private final int MAX_CAPACITY = 10000;
-    private int capacity;
-    private HashMap<Integer, Slot> slots;
+    private final int capacity;
+    private final HashMap<Integer, Slot> slots;
 
     public ParkingLot(int capacity) {
         if (capacity >= MAX_CAPACITY || capacity < 0) {

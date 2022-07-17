@@ -8,6 +8,10 @@ import ParkingLot.java.service.ParkingLotService;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * Factory to get correct {@link CommandExecutor} from a given command.
+ */
 public class CommandExecutorFactory {
 
     private ParkingLotService parkingLotService;

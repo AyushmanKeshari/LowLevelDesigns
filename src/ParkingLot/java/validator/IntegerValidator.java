@@ -1,4 +1,4 @@
-package ParkingLot.java.Validator;
+package ParkingLot.java.validator;
 
 public class IntegerValidator {
     public static boolean isInteger(String input) {

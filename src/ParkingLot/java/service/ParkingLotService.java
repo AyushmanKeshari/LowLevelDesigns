@@ -11,6 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service to enable functioning of a parking lot. This will have all the business logic of
+ * how the parking service will operate.
+ */
 public class ParkingLotService {
     private ParkingLot parkingLot;
     private ParkingStrategy parkingStrategy;

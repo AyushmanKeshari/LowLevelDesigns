@@ -25,13 +25,13 @@ public class Status extends CommandExecutor {
     public void execute(Command command) {
         List<Slot> occupiedSlotList = parkingLotService.getOccupiedSlots();
 
-        if(occupiedSlotList.isEmpty()) {
+        if (occupiedSlotList.isEmpty()) {
             outputPrinter.parkingLotEmpty();
             return;
         }
 
         outputPrinter.statusHeader();
-        for(Slot slot : occupiedSlotList){
+        for (Slot slot : occupiedSlotList) {
             Car parkedCar = slot.getParkedCar();
             String slotNumber = slot.getSlotNumber().toString();
 
@@ -41,12 +41,12 @@ public class Status extends CommandExecutor {
 
     }
 
-    //Can be used to apply padding
+    //Can be used to apply fixed padding
     private static String padString(final String word, final int length) {
-        String newWord = word;
-        for(int count = word.length(); count < length; count++) {
-            newWord = newWord + " ";
+        StringBuilder newWord = new StringBuilder(word);
+        for (int count = word.length(); count < length; count++) {
+            newWord.append(" ");
         }
-        return newWord;
+        return newWord.toString();
     }
 }
