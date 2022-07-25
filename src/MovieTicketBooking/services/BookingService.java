@@ -29,16 +29,6 @@ public class BookingService {
         return showBookings.get(bookingId);
     }
 
-    public List<Booking> getAllBookings(@NonNull final Show show) {
-        List<Booking> response = new ArrayList<>();
-        for (Booking booking : showBookings.values()) {
-            if (booking.getShow().equals(show)) {
-                response.add(booking);
-            }
-        }
-        return response;
-    }
-
     public Booking createBooking(@NonNull final String userID, @NonNull final Show show
             , @NonNull final List<Seat> seats) {
 
@@ -58,15 +48,6 @@ public class BookingService {
         //TODO: create timer for booking expiry
     }
 
-    public List<Seat> getBookedSeats(@NonNull final Show show) {
-        List<Booking> allBookings = getAllBookings(show);
-        return allBookings.stream()
-                .filter(Booking::isConfirmed)
-                .map(Booking::getBookedSeats)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
-    }
-
     private boolean isAnySeatAlreadyBooked(final Show show, List<Seat> seats) {
         final List<Seat> bookedSeats = getBookedSeats(show);
         for (Seat seat : seats) {
@@ -77,8 +58,28 @@ public class BookingService {
         return false;
     }
 
+    public List<Seat> getBookedSeats(@NonNull final Show show) {
+        List<Booking> allBookings = getAllBookings(show);
+        return allBookings.stream()
+                .filter(Booking::isConfirmed)
+                .map(Booking::getBookedSeats)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
+
+    private List<Booking> getAllBookings(@NonNull final Show show) {
+        List<Booking> response = new ArrayList<>();
+        for (Booking booking : showBookings.values()) {
+            if (booking.getShow().equals(show)) {
+                response.add(booking);
+            }
+        }
+        return response;
+    }
+
+
     public void confirmBooking(Booking booking, String user) {
-        if(!booking.getUser().equals(user)) {
+        if (!booking.getUser().equals(user)) {
             throw new BadRequestException();
         }
 
