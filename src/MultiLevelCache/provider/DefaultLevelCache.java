@@ -5,6 +5,9 @@ import MultiLevelCache.model.ReadResponse;
 import MultiLevelCache.model.WriteResponse;
 import lombok.AllArgsConstructor;
 
+import java.util.Collections;
+import java.util.List;
+
 //CacheService -> L1 -> L2 -> L3 ->     next pointer.
 //                C1    C2    C3...     Cache at each level.
 
@@ -50,5 +53,17 @@ public class DefaultLevelCache<Key, Value> implements ILevelCache<Key, Value> {
             }
         }
         return new ReadResponse<>(currValue, currTime);
+    }
+
+    @Override
+    public List<Double> getUsages() {
+        List<Double> usages;
+        if (next == null) {
+            usages = Collections.emptyList();
+        } else {
+            usages = next.getUsages();
+        }
+        usages.add(0, cacheProvider.getCurrentUsage());
+        return usages;
     }
 }

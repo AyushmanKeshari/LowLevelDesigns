@@ -8,4 +8,7 @@ public interface Storage<Key, Value> {
     void remove(Key key);
 
     Value get(Key key);
+
+
+    double getCurrentUsage();
 }

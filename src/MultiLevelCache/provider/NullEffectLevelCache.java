@@ -3,6 +3,9 @@ package MultiLevelCache.provider;
 import MultiLevelCache.model.ReadResponse;
 import MultiLevelCache.model.WriteResponse;
 
+import java.util.Collections;
+import java.util.List;
+
 public class NullEffectLevelCache<Key, Value> implements ILevelCache<Key, Value> {
     @Override
     public WriteResponse set(Key key, Value value) {
@@ -12,5 +15,10 @@ public class NullEffectLevelCache<Key, Value> implements ILevelCache<Key, Value>
     @Override
     public ReadResponse<Value> get(Key key) {
         return new ReadResponse<>(null, 0.0);
+    }
+
+    @Override
+    public List<Double> getUsages() {
+        return Collections.emptyList();
     }
 }

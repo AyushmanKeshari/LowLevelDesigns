@@ -25,7 +25,7 @@ public class CacheServiceTest {
         DefaultLevelCache<String, String> l2Cache = new DefaultLevelCache<>(cl2, c2, new NullEffectLevelCache<>());
         DefaultLevelCache<String, String> l1Cache = new DefaultLevelCache<>(cl1, c1, l2Cache);
 
-        CacheService<String, String> cacheService = new CacheService<>(l1Cache);
+        CacheService<String, String> cacheService = new CacheService<>(l1Cache, 5);
 
         WriteResponse w1 = cacheService.set("k1", "v1");
         WriteResponse w2 = cacheService.set("k2", "v2");

@@ -33,6 +33,11 @@ public class InMemoryStorage<Key, Value> implements Storage<Key, Value> {
         return storage.get(key);
     }
 
+    @Override
+    public double getCurrentUsage() {
+        return (double) storage.size() / (double) capacity;
+    }
+
     private boolean isStorageFull() {
         return storage.size() == capacity;
     }

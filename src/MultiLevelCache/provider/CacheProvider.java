@@ -30,4 +30,8 @@ public class CacheProvider<Key, Value> {
         evictionPolicy.keyAccessed(key);
         return storage.get(key);
     }
+
+    public double getCurrentUsage() {
+        return storage.getCurrentUsage();
+    }
 }

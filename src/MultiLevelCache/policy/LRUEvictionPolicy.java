@@ -1,15 +1,39 @@
 package MultiLevelCache.policy;
 
+import MultiLevelCache.algorithm.DoublyLinkedList;
+import MultiLevelCache.algorithm.DoublyLinkedListNode;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class LRUEvictionPolicy<Key> implements EvictionPolicy<Key> {
+
+    DoublyLinkedList<Key> dll;
+    Map<Key, DoublyLinkedListNode<Key>> mapper;
+
+    public LRUEvictionPolicy() {
+        dll = new DoublyLinkedList<>();
+        mapper = new HashMap<>();
+    }
 
     @Override
     public void keyAccessed(Key key) {
-        //TODO: Implement - Refer to single level Cache.
+        if (mapper.containsKey(key)) {
+            dll.detachNode(mapper.get(key));
+            dll.addNodeAtLast(mapper.get(key));
+        } else {
+            DoublyLinkedListNode<Key> node = dll.addElementAtLast(key);
+            mapper.put(key, node);
+        }
     }
 
     @Override
     public Key evict() {
-        //TODO: Implement - Refer to single level Cache.
-        return null;
+        DoublyLinkedListNode<Key> node = dll.getFirstNode();
+        if (node == null) {
+            return null;
+        }
+        dll.detachNode(node);
+        return node.getElement();
     }
 }
